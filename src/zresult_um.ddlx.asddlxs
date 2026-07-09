@@ -1,0 +1,47 @@
+@Metadata.layer: #PARTNER
+annotate entity zRESULT_I_UM with
+{
+  @UI.facet: [{ id: 'Results',
+              purpose: #STANDARD,
+              type: #IDENTIFICATION_REFERENCE,
+              label: 'Results',
+              position: 10
+            }
+            ]
+  @UI: { lineItem: [{ position: 10 , label: 'Id'  }] ,
+          identification: [{ position: 10 , label: 'Id' }]
+          }
+  Id;
+
+  @UI: { lineItem: [{ position: 20 , label: 'Semester'  }] ,
+   identification: [{ position: 20 , label: 'Semester' }],
+   selectionField: [{ position: 20 }]
+   }
+  //  Course;
+  //
+  //  @UI: { lineItem: [{ position: 30 , label: 'Course'  }] ,
+  //  identification: [{ position: 30 , label: 'Course' }],
+  //  selectionField: [{ position: 30 }]
+  //  }
+  Semester;
+
+  @UI: { lineItem: [{ position: 40 , label: 'Semester Description'  }] ,
+  identification: [{ position: 40 , label: 'Semester Description' }] ,
+  selectionField: [{ position: 40 }]
+  }
+  //  Course_Desc;
+  //
+  //  @UI: { lineItem: [{ position: 50 , label: 'Course Description'  }] ,
+  //  identification: [{ position: 50 , label:  'Course Description' }] }
+  Semester_Desc;
+
+  @UI: { lineItem: [{ position: 60 , label: 'Semester Result'  }],
+  identification: [{ position: 60 , label: 'Semester Result' }]  }
+
+  Sem_result;
+  //  @UI: { lineItem: [{ position: 70 , label: 'Semester Description'  }] ,
+  //  identification: [{ position: 70 , label: 'Semester Description' }] }
+  //  Sem_Desc;
+  //
+  //
+}

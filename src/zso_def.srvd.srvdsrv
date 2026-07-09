@@ -1,0 +1,5 @@
+@EndUserText.label: 'def'
+define service Zso_def {
+  expose zi_sheader;
+  expose zi_sitem;
+}

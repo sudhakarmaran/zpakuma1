@@ -1,0 +1,5 @@
+@EndUserText.label: 'def'
+define service Zuser_v2 {
+  expose ZC_2123_USER;
+  expose ZC_2123_USER_DEV;
+}

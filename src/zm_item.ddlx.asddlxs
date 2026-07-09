@@ -1,0 +1,21 @@
+@Metadata.layer:  #PARTNER
+annotate entity zi_sitem
+    with 
+{
+    @UI.facet: [{ id: 'ITEM',
+              purpose: #STANDARD,
+              type: #IDENTIFICATION_REFERENCE,
+              label: 'Item Details',
+              position: 10
+            }
+            ]
+    @UI: { lineItem: [{ position: 10 , label: 'DOC NO'  }] ,
+          identification: [{ position: 10 , label: 'DOC NO' }]
+          }
+  Docnum ;
+      @UI: { lineItem: [{ position: 10 , label: 'ITEM NO'  }] ,
+          identification: [{ position: 10 , label: 'ITEM NO' }]
+          }
+    Itemno; 
+    
+}

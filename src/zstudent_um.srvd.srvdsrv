@@ -1,0 +1,5 @@
+@EndUserText.label: 'service Def'
+define service Zstudent_um {
+  expose ZSTUDENT_I_UM;
+  expose zRESULT_I_UM;
+}

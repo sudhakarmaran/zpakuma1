@@ -1,0 +1,67 @@
+unmanaged implementation in class zbp_student_i_um unique;
+strict ( 1 );
+with draft;
+define behavior for zSTUDENT_I_UM alias student
+draft table zstudent_d
+//late numbering
+early numbering
+lock master
+total etag LASTCHANGEDAT
+authorization master ( instance )
+etag master lastchangedat
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association _results { create; }
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+
+  draft determine action Prepare;
+  field ( readonly ) id;
+
+  mapping for zstudent_um control zcs_stud_prop_um
+  {
+    id = id;
+    studentid = studentid;
+    firstname = firstname;
+    lastname = lastname;
+    age = age;
+    course = course;
+    courseduration = courseduration;
+    status = status;
+    gender = gender;
+    dob = dob;
+    lastchangedat = lastchangedat;
+    locallastchangedat = locallastchangedat;
+    genderdesc = genderdesc;
+  }
+}
+
+define behavior for zRESULT_I_UM alias results
+//late numbering
+draft table zresult_d
+lock dependent by _Student
+authorization dependent by _Student
+//etag master <field_name>
+etag dependent by _student
+{
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _Student { with draft; }
+  mapping for zresult_um
+  {
+    id = id;
+    course = course;
+    semester = semester;
+    Course_Desc = Course_Desc;
+    semester_desc = semester_desc;
+    sem_result = semresult;
+    sem_desc = sem_desc;
+  }
+}

@@ -1,0 +1,56 @@
+managed implementation in class zbp_i_sheader unique;
+strict ( 2 );
+with draft;
+define behavior for zi_sheader alias header
+persistent table zsheader
+draft table zdsheader
+lock master
+total etag lastchangedat
+etag master lastchangedat
+authorization master ( instance )
+
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+
+  association _ITEM { create;with draft; }
+  field ( numbering : managed, readonly ) Docnum;
+  draft action Edit;
+  draft action Discard;
+  draft action Activate optimized;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zsheader {
+   docnum = Docnum;
+  CreatedBy =  createdby;
+  attachment = Attachment;
+  mimetype   = Mimetype;
+  filename  = Filename;
+  lastchangedat = lastchangedat;
+}
+
+}
+
+define behavior for zi_sitem alias ITEM
+persistent table zsitem
+draft table zdsitem
+lock dependent by _HEADER
+etag dependent by _HEADER
+authorization dependent by _HEADER
+//etag master <field_name>
+
+{
+  update;
+  delete;
+  field ( readonly ) Docnum;
+  association _HEADER { with draft; }
+  mapping for zsitem {
+   docnum = Docnum;
+    itemno = Itemno;
+    material = Material;
+}
+  }

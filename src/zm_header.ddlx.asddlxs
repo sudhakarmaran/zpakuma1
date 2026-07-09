@@ -1,0 +1,54 @@
+@Metadata.layer: #PARTNER
+
+//@UI: {
+//  headerInfo: {
+//    typeName: 'SO Detail',
+//    typeNamePlural: 'SO Details',
+//
+//    title: {
+//            type: #STANDARD, value: 'Docnum'
+//        },
+//        description: {
+//            value: 'DOCNUM'
+//
+//        },
+//    description: { label: '(SO Details)' }
+//  }
+//}
+annotate view zi_sheader
+    with 
+{
+  @UI.facet: [{ id:'header',
+                 purpose: #STANDARD,
+                 type: #IDENTIFICATION_REFERENCE,
+                 label: 'SALES HEADER',
+                 position: 10
+               } ,
+               { id: 'ITEM',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'SALES ITEM',
+                 position: 20,
+                 targetElement: '_ITEM'
+               } ] 
+               
+  @UI: { lineItem: [{ position: 10 , label: 'Document No'  }] ,
+          identification: [{ position: 10 , label: 'Document No' }]
+          }
+  Docnum;
+  @UI: { lineItem: [{ position: 20 , label: 'Attachment'  }] ,
+  identification: [{ position: 20 , label: 'Attachment' }]
+  }
+  Attachment;
+//
+  @UI: { lineItem: [{ position: 30 , label: 'filename'  }] ,
+  identification: [{ position: 30 , label: 'filename' }] 
+  }
+ Filename;  
+   @UI: { lineItem: [{ position: 30 , label: 'Createdby'  }] ,
+  identification: [{ position: 30 , label: 'Createdby' }] 
+  }
+  createdby;
+ 
+  
+}

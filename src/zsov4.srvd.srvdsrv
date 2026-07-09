@@ -1,0 +1,5 @@
+@EndUserText.label: 'v4'
+define service Zsov4 {
+  expose zi_sheader;
+  expose zi_sitem;
+}
